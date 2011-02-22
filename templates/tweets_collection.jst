@@ -1,0 +1,9 @@
+<% if(collection.models.length > 0) { %>
+  <ul>
+  <% collection.each(function(item) { %>
+    <li><%= item.escape('text') %></li>
+  <% }); %>
+  </ul>
+<% } else { %>
+  <h2>No tweets!</h2>
+<% } %>
