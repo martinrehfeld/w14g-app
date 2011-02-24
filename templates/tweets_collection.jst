@@ -1,5 +1,12 @@
+<% if (collection.isFiltered()) { %>
+<h2 class="tweets-filter">
+  Tweets filtered by "<%= collection.currentFilter %>".
+  <a href="#reset_filter">Reset Filter</a>
+</h2>
+<% } %>
+
 <ul>
-  <% _.each(collection.first(50), function(item) { %>
+  <% _.each(_.first(collection.visible(), 50), function(item) { %>
   <li><%= item.escape('text') %></li>
   <% }); %>
 </ul>
