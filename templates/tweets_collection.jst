@@ -7,6 +7,8 @@
 
 <ul>
   <% _.each(_.first(collection.visible(), 50), function(item) { %>
-  <li><%= item.escape('text') %></li>
+  <li class="tweet" id="tweet-<%= item.get('id_str') %>">
+    <%= item.escape('text') %>
+  </li>
   <% }); %>
 </ul>
