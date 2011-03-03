@@ -1,7 +1,7 @@
 <form>
   <p class="field screen-name">
     <label for="screen_name">Let me know your Twitter handle, please. @</label>
-    <input type="text" name="screen_name" value="<%= 'roidrage' || model.escape('screen_name') %>">
+    <input type="text" name="screen_name" value="<%= model.escape('screen_name') || 'roidrage' %>">
     <button>Now, what was I thinking?</button>
   </p>
 </form>
