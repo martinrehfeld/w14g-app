@@ -1,7 +1,7 @@
 <% if (collection.isFiltered()) { %>
 <h2 class="tweets-filter">
-  Tweets filtered by "<%= collection.currentFilter %>".
-  <a href="#<%= encodeURIComponent(model.get('screen_name')) %>">Reset Filter</a>
+  Tweets about <%= collection.currentFilter %>.
+  <a href="#<%= encodeURIComponent(model.get('screen_name')) %>">Show all</a>
 </h2>
 <% } %>
 
