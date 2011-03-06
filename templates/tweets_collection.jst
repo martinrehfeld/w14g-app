@@ -1,14 +1,1 @@
-<% if (collection.isFiltered()) { %>
-<h2 class="tweets-filter">
-  Tweets about <span class="filter-term"><%= collection.currentFilter %></span>.
-  <a href="#<%= encodeURIComponent(model.get('screen_name')) %>">Show all</a>
-</h2>
-<% } %>
-
-<ul>
-  <% _.each(_.first(collection.visible(), 50), function(item) { %>
-  <li class="tweet" id="tweet-<%= item.get('id_str') %>">
-    <%= item.escape('text') %>
-  </li>
-  <% }); %>
-</ul>
+<ul class="tweets-collection"></ul>
