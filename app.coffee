@@ -1,4 +1,4 @@
-window.App =
+@App =
   Models: {}
   Views: {}
   Controllers: {}
