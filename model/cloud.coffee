@@ -19,7 +19,7 @@ class App.Models.Cloud extends Backbone.Model
     result = {}
 
     for entry, frequency of frequencyMap when frequency >= lowestAcceptableFrequency
-      break if count <= 1
+      break if count < 1
       result[entry] = frequency
       count -= 1
 
