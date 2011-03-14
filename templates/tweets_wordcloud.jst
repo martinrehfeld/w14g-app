@@ -1,3 +1,8 @@
-<% _.each(collection, function (frequency, word) { %>
+<div class="filter">
+  <button data-filter=""<%= !collection.get('filter') ? ' class="active"' : '' %>>All</button>
+  <button data-filter="@"<%= collection.get('filter') === '@' ? ' class="active"' : '' %>>Users</button>
+  <button data-filter="#"<%= collection.get('filter') === '#' ? ' class="active"' : '' %>>Hashtags</button>
+</div>
+<% _.each(collection.topEntries(75), function (frequency, word) { %>
   <a href="#<%= encodeURIComponent(model.get('screenName')) %>/<%= encodeURIComponent(word) %>" rel="<%= frequency %>"><%= App.escapeHTML(word) %></a>
 <% }); %>

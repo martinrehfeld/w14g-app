@@ -5,9 +5,11 @@ class App.Views.Tweets extends Backbone.View
 
   initialize: ->
     @collection.bind 'add', @tweetAdded
+    @collection.bind 'refresh', @render
 
   render: =>
-    # $(@el).empty().append(JST.tweets_collection model: @options.parent, collection: @collection)
+    $(@el).empty()
+    @collection.each (tweet) -> @tweetAdded(tweet)
     @
 
   tweetAdded: (newTweet) =>

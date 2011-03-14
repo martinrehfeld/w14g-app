@@ -7,7 +7,7 @@ class App.Controllers.Report extends Backbone.Controller
 
   initialize: ->
     @model = new App.Models.Report
-    @showView = new App.Views.Show model: @model
+    @showView = new App.Views.Show(model: @model).render()
 
   index: ->
     new App.Views.Index(model: @model).render()
@@ -15,9 +15,7 @@ class App.Controllers.Report extends Backbone.Controller
   show: (screenName) ->
     @model.set screenName: screenName
     @model.resetFilter()
-    @showView.render()
 
   filter: (screenName, word) ->
     @model.set screenName: screenName
     @model.filterByWord decodeURIComponent word
-    @showView.render()
