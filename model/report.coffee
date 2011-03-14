@@ -8,14 +8,14 @@ class App.Models.Report extends Backbone.Model
     @bind 'change:screenName', @newScreenName
 
   newScreenName: =>
-    screenName = @get 'screenName'
     tweets     = @get 'tweets'
+    screenName = @get 'screenName'
     wordCloud  = @get 'wordCloud'
 
     tweets.clear()
     wordCloud.clear()
     @trigger 'change'
-    tweets.fetch(this)
+    tweets.fetch this
 
   filterByWord: (word) ->
     @get('tweets').filterByWord word

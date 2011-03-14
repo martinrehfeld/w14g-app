@@ -1,6 +1,6 @@
 @App =
-  Models: {}
-  Views: {}
+  Models:      {}
+  Views:       {}
   Controllers: {}
   Collections: {}
 

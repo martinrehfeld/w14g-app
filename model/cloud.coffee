@@ -18,18 +18,17 @@ class App.Models.Cloud extends Backbone.Model
 
   entries: ->
     filterRegex = new RegExp "^#{@get('filter') ? ''}"
-    result = {}
+    result      = {}
 
     for entry, frequency of @get('frequencyMap') when filterRegex.test entry
       result[entry] = frequency
 
     result
 
-
   topEntries: (count) ->
-    entries = @entries()
+    entries                   = @entries()
     lowestAcceptableFrequency = _.last _.first _.sortBy(_.values(entries), (frequency) -> -frequency), count
-    result = {}
+    result                    = {}
 
     for entry, frequency of entries when frequency >= lowestAcceptableFrequency
       break if count < 1

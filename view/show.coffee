@@ -9,5 +9,5 @@ class App.Views.Show extends Backbone.View
     @tweetsView        = new App.Views.Tweets(parent: @model, collection: tweets).render()
 
   render: =>
-    $('#app #report').empty().append(@wordCloudView.el, @tweetsFilterView.el, @tweetsView.el)
+    $('#app #report').empty().append @wordCloudView.el, @tweetsFilterView.el, @tweetsView.el
     @

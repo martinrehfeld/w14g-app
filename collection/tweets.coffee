@@ -15,12 +15,16 @@ class App.Collections.Tweets extends Backbone.Collection
     @refresh [], options
 
   fetch: (report) ->
-    page = 1
-    screenName = report.get('screenName')
-    baseUrl = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' +
+    page       = 1
+    screenName = report.get 'screenName'
+    baseUrl    = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name = ' +
               encodeURIComponent(screenName) +
               '&include_rts=1&include_entities=1&trim_user=1&callback=?&count=200&page='
 
+    # TODO: inform user about errors
+    #       - 400 Bad Request will be returned when you are over the rate limit
+    #       - 401 Unauthorized will be given when the feed is protected
+    #       - 404 Not Found will be given when the screenname is unknown
     fetchNext = =>
       $.getJSON baseUrl + page, (data) =>
         if data.length > 0 && report.get('screenName') == screenName
@@ -32,8 +36,8 @@ class App.Collections.Tweets extends Backbone.Collection
     setTimeout fetchNext, 0
 
   tweetAdded: (newTweet) ->
-    wordMap = @wordMap
-    currentFilter = @currentFilter
+    wordMap              = @wordMap
+    currentFilter        = @currentFilter
     matchesCurrentFilter = false
 
     if !@isFiltered()
@@ -57,25 +61,18 @@ class App.Collections.Tweets extends Backbone.Collection
     options ?= {}
 
     @currentFilter = null
-    @each (tweet) ->
-      tweet.set visible: true
-
-    if !options.silent
-      @trigger 'filterchange'
+    @each (tweet) -> tweet.set visible: true
+    @trigger 'filterchange' if !options.silent
 
   filterByWord: (word) ->
-    wordMap = @wordMap
-    if !wordMap[word]
-      wordMap[word] = []
+    wordMap        = @wordMap
+    wordMap[word]  = [] if !wordMap[word]
     @visibleModels = wordMap[word]
     @currentFilter = word
 
-    @each (tweet) ->
-      tweet.set visible: false
-
+    @each (tweet) -> tweet.set visible: false
     for tweet in @visibleModels
       tweet.set visible: true
-
     @trigger 'filterchange'
 
   visible: ->

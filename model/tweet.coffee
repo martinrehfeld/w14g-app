@@ -6,8 +6,7 @@ class App.Models.Tweet extends Backbone.Model
 
   analyze: ->
     words = @extractEntities()
-    @set
-      analysedWords: words.concat @extractWords @get 'textWithoutEntities'
+    @set analysedWords: words.concat @extractWords(@get 'textWithoutEntities')
 
   extractEntities: ->
     entities    = @get 'entities'
