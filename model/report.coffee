@@ -5,10 +5,10 @@ class App.Models.Report extends Backbone.Model
     @set
       tweets:    tweets
       wordCloud: new App.Models.Cloud(collection: tweets)
-    @bind 'change:screen_name', @newScreenName
+    @bind 'change:screenName', @newScreenName
 
   newScreenName: =>
-    screenName = @get 'screen_name'
+    screenName = @get 'screenName'
     tweets     = @get 'tweets'
     wordCloud  = @get 'wordCloud'
 

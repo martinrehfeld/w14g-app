@@ -1,3 +1,3 @@
 <% _.each(collection, function (frequency, word) { %>
-  <a href="#<%= encodeURIComponent(model.get('screen_name')) %>/<%= encodeURIComponent(word) %>" rel="<%= frequency %>"><%= App.escapeHTML(word) %></a>
+  <a href="#<%= encodeURIComponent(model.get('screenName')) %>/<%= encodeURIComponent(word) %>" rel="<%= frequency %>"><%= App.escapeHTML(word) %></a>
 <% }); %>

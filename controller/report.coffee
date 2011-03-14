@@ -2,8 +2,8 @@ class App.Controllers.Report extends Backbone.Controller
 
   routes:
     "": "index"
-    ":screen_name": "show"
-    ":screen_name/:word": "filter"
+    ":screenName": "show"
+    ":screenName/:word": "filter"
 
   initialize: ->
     @model = new App.Models.Report
@@ -12,12 +12,12 @@ class App.Controllers.Report extends Backbone.Controller
   index: ->
     new App.Views.Index(model: @model).render()
 
-  show: (screen_name) ->
-    @model.set screen_name: screen_name
+  show: (screenName) ->
+    @model.set screenName: screenName
     @model.resetFilter()
     @showView.render()
 
-  filter: (screen_name, word) ->
-    @model.set screen_name: screen_name
+  filter: (screenName, word) ->
+    @model.set screenName: screenName
     @model.filterByWord decodeURIComponent word
     @showView.render()

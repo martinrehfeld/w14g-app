@@ -17,7 +17,7 @@ class App.Collections.Tweets extends Backbone.Collection
   fetch: (report) ->
     page = 1
     baseUrl = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' +
-              encodeURIComponent(report.get('screen_name')) +
+              encodeURIComponent(report.get('screenName')) +
               '&include_rts=1&include_entities=1&trim_user=1&callback=?&count=200&page='
 
     fetchNext = =>
@@ -33,10 +33,10 @@ class App.Collections.Tweets extends Backbone.Collection
   tweetAdded: (newTweet) ->
     wordMap = @wordMap
     currentFilter = @currentFilter
-    matches_current_filter = false
+    matchesCurrentFilter = false
 
     if !@isFiltered()
-      matches_current_filter = true
+      matchesCurrentFilter = true
 
     for word in _.uniq newTweet.analysedWords() when word != ''
       if wordMap[word]?
@@ -44,10 +44,10 @@ class App.Collections.Tweets extends Backbone.Collection
       else
         wordMap[word] = [newTweet]
 
-      if !matches_current_filter && word == currentFilter
-        matches_current_filter = true
+      if !matchesCurrentFilter && word == currentFilter
+        matchesCurrentFilter = true
 
-    newTweet.set visible: matches_current_filter
+    newTweet.set visible: matchesCurrentFilter
 
   isFiltered: ->
     @currentFilter?
