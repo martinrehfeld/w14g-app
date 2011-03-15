@@ -1,5 +1,6 @@
 class App.Views.WordCloud extends Backbone.View
 
+  tagName:   'section'
   className: 'word-cloud'
 
   events:
