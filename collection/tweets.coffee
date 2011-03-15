@@ -17,7 +17,7 @@ class App.Collections.Tweets extends Backbone.Collection
   fetch: (report) ->
     page       = 1
     screenName = report.get 'screenName'
-    baseUrl    = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name = ' +
+    baseUrl    = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' +
               encodeURIComponent(screenName) +
               '&include_rts=1&include_entities=1&trim_user=1&callback=?&count=200&page='
 
