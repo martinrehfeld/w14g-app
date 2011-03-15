@@ -1,5 +1,6 @@
 <div class="filter">
   <button data-filter=""<%= !collection.get('filter') ? ' class="active"' : '' %>>All</button>
+  <button data-filter="[^@#]"<%= collection.get('filter') === '[^@#]' ? ' class="active"' : '' %>>Words</button>
   <button data-filter="@"<%= collection.get('filter') === '@' ? ' class="active"' : '' %>>Users</button>
   <button data-filter="#"<%= collection.get('filter') === '#' ? ' class="active"' : '' %>>Hashtags</button>
 </div>
