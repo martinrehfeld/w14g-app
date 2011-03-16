@@ -5,11 +5,12 @@ class App.Views.Show extends Backbone.View
     wordCloud = @model.get 'wordCloud'
 
     @userView          = new App.Views.User(model: @model.get('user'))
+    @tweetsGraphView   = new App.Views.TweetsGraph(parent: @model, collection: tweets)
     @wordCloudView     = new App.Views.WordCloud(parent: @model, model: wordCloud)
     @tweetsFilterView  = new App.Views.TweetsFilter(parent: @model, collection: tweets)
     @tweetsView        = new App.Views.Tweets(parent: @model, collection: tweets)
 
   render: =>
     tweets = $('<section class="tweets" />').append @tweetsFilterView.el, @tweetsView.el
-    $('#app #report').empty().append @userView.el, @wordCloudView.el, tweets
+    $('#app #report').empty().append @userView.el, @tweetsGraphView.el, @wordCloudView.el, tweets
     @
