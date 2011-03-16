@@ -16,10 +16,12 @@ class App.Collections.Tweets extends Backbone.Collection
 
   fetch: (report) ->
     page       = 1
+    perPage    = 200
+    maxPages   = 3200 / perPage
     screenName = report.get 'screenName'
     baseUrl    = 'http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' +
-              encodeURIComponent(screenName) +
-              '&include_rts=1&include_entities=1&trim_user=1&callback=?&count=200&page='
+                 encodeURIComponent(screenName) +
+                 "&include_rts=1&include_entities=1&trim_user=1&callback=?&count=#{perPage}&page="
 
     # TODO: inform user about errors
     #       - 400 Bad Request will be returned when you are over the rate limit
@@ -30,7 +32,7 @@ class App.Collections.Tweets extends Backbone.Collection
         if data.length > 0 && report.get('screenName') == screenName
           @add data
           report.trigger 'change'
-          if page < 16 # count*page: max 3,200
+          if page < maxPages && data.length == perPage
             page += 1
             setTimeout fetchNext, 0
     setTimeout fetchNext, 0
