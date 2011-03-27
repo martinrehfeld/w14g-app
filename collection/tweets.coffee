@@ -27,6 +27,7 @@ class App.Collections.Tweets extends Backbone.Collection
     #       - 400 Bad Request will be returned when you are over the rate limit
     #       - 401 Unauthorized will be given when the feed is protected
     #       - 404 Not Found will be given when the screenname is unknown
+    #       - 503 Service Temporarily Unavailable when Twitter is over capacity
     fetchNext = =>
       $.getJSON baseUrl + page, (data) =>
         if data.length > 0 && report.get('screenName') == screenName
