@@ -55,6 +55,10 @@ class App.Models.Tweet extends Backbone.Model
   getDateTime: ->
     new Date(@get 'created_at')
 
+  getDateTimeString: ->
+    date = @getDateTime()
+    date.toLocaleString()
+
   getDate: ->
     date = @getDateTime()
     date.setHours(0, 0, 0, 0)
