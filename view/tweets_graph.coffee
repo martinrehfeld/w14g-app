@@ -21,6 +21,8 @@ class App.Views.TweetsGraph extends Backbone.View
         height: 240
         title:  'Tweets per Day'
         legend: 'none'
+        chartArea:
+          left: 30
         hAxis:
           slantedText: false
 
