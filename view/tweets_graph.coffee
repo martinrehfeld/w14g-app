@@ -5,7 +5,7 @@ class App.Views.TweetsGraph extends Backbone.View
 
   initialize: ->
     @dataTable = new google.visualization.DataTable()
-    @dataTable.addColumn 'string', 'Date'
+    @dataTable.addColumn 'date', 'Date'
     @dataTable.addColumn 'number', 'Tweets'
     @chart = new google.visualization.ColumnChart(@el)
 
@@ -14,22 +14,21 @@ class App.Views.TweetsGraph extends Backbone.View
     @collection.bind 'refresh', @render
 
   drawChart: =>
-    debugger
     if @dataTable.getNumberOfRows() > 0
       data = google.visualization.data.group(@dataTable, [0], [column: 1, aggregation: google.visualization.data.sum, type: 'number'])
       @chart.draw data,
-        width: 400
+        width:  600
         height: 240
-        title: 'Tweets per Day'
+        title:  'Tweets per Day'
+        legend: 'none'
+        hAxis:
+          slantedText: false
 
   render: =>
-    debugger
-    rowCount = @dataTable.getNumberOfRows()
-    @dataTable.removeRows 0, rowCount
+    @dataTable.removeRows 0, @dataTable.getNumberOfRows()
     @collection.each (tweet) -> @tweetAdded(tweet)
     @drawChart()
     @
 
   tweetAdded: (newTweet) =>
-    debugger
-    @dataTable.addRow [newTweet.getDateString(), 1]
+    @dataTable.addRow [newTweet.getDate(), 1]
