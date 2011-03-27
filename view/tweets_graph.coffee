@@ -17,12 +17,17 @@ class App.Views.TweetsGraph extends Backbone.View
     if @dataTable.getNumberOfRows() > 0
       data = google.visualization.data.group(@dataTable, [0], [column: 1, aggregation: google.visualization.data.sum, type: 'number'])
       @chart.draw data,
-        width:  600
-        height: 240
-        title:  'Tweets per Day'
+        width:  500
+        height: 200
+        titlePosition: 'none'
         legend: 'none'
         chartArea:
-          left: 30
+          top: 7
+          left: 50
+          width: 450
+          height: 150
+        vAxis:
+          title: 'Tweets per Day'
         hAxis:
           slantedText: false
 
