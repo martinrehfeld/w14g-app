@@ -11,7 +11,7 @@ class App.Views.WordCloud extends Backbone.View
 
   filterChange: (event) =>
     event.preventDefault()
-    @model.setFilter $(event.target).attr('data-filter')
+    @model.setFilter $(event.target).data('filter')
     @render()
 
   render: =>
