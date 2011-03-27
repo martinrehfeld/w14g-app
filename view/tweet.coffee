@@ -8,6 +8,7 @@ class App.Views.Tweet extends Backbone.View
 
   render: =>
     $(@el).html JST.tweet model: @model
+    $(@el).addClass('conversation') if @model.isConversation()
     @updateVisibility()
     @
 
