@@ -35,4 +35,6 @@ class App.Models.Cloud extends Backbone.Model
       result[entry] = frequency
       count -= 1
 
-    result
+    # sort result by word; result is [ [entry, frequency], [...] ]
+    _.sortBy _.map(result, (frequency, entry) -> [entry, frequency]), (tupel) ->
+      tupel[0].replace(/^[@#]/, '').toLocaleLowerCase()
