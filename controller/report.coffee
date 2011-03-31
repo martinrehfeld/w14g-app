@@ -1,9 +1,9 @@
 class App.Controllers.Report extends Backbone.Controller
 
   routes:
-    ""                  : "index"
-    ":screenName"       : "show"
-    ":screenName/:word" : "filter"
+    ''                    : 'index'
+    '!/:screenName'       : 'show'
+    '!/:screenName/:word' : 'filter'
 
   initialize: ->
     @model    = new App.Models.Report

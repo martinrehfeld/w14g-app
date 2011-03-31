@@ -1,6 +1,6 @@
 <% if (collection.isFiltered()) { %>
 <h2 class="tweets-filter">
   Tweets about <span class="filter-term"><%= collection.currentFilter %></span>.
-  <a href="#<%= encodeURIComponent(model.get('screenName')) %>">Show all</a>
+  <a href="#!/<%= encodeURIComponent(model.get('screenName')) %>">Show all</a>
 </h2>
 <% } %>

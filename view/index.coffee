@@ -5,7 +5,7 @@ class App.Views.Index extends Backbone.View
 
   update: (event) =>
     event.preventDefault()
-    window.location.hash = @$('[name=screen_name]').val()
+    window.location.hash = '!/' + @$('[name=screen_name]').val()
 
   render: =>
     $(@el).html JST.report_form model: @model
