@@ -1,27 +1,25 @@
-<div id="profile">
-  <h1 class="full-name"><%= model.escape('name') %> <a class="screen-name">(@<%= model.escape('screen_name') %>)</a></h1>
-  <img class="profile-picture" src="<%= encodeURI(model.get('profile_image_url')) %>">
-  <div class="profile-details">
-    <h2 class="location">
-      <span class="location"><%= model.escape('location') %></span>
-    </h2>
-    <p class="description"><%= model.escape('description') %></p>
-    <p class="url"><a href="<%= encodeURI(model.get('url')) %>"><%= model.escape('url') %></a></p>
-    <div class="tweet-count stat">
-      <span class="count"><%= model.get('statuses_count') %></span>
-      <span class="label">Tweets</span>
-    </div>
-    <div class="following-count stat">
-      <span class="count"><%= model.get('friends_count') %></span>
-      <span class="label">Following</span>
-    </div>
-    <div class="followers-count stat">
-      <span class="count"><%= model.get('followers_count') %></span>
-      <span class="label">Followers</span>
-    </div>
-    <div class="listed-count stat">
-      <span class="count"><%= model.get('listed_count') %></span>
-      <span class="label">Listed</span>
-    </div>
+<h1 class="full-name"><%= model.escape('name') %> <a class="screen-name">(@<%= model.escape('screen_name') %>)</a></h1>
+<img class="profile-picture" src="<%= encodeURI(model.get('profile_image_url')) %>">
+<div class="profile-details">
+  <h2 class="location">
+    <span class="location"><%= model.escape('location') %></span>
+  </h2>
+  <p class="description"><%= model.escape('description') %></p>
+  <p class="url"><a href="<%= encodeURI(model.get('url')) %>"><%= model.escape('url') %></a></p>
+  <div class="tweet-count stat">
+    <span class="count"><%= model.get('statuses_count') %></span>
+    <span class="label">Tweets</span>
+  </div>
+  <div class="following-count stat">
+    <span class="count"><%= model.get('friends_count') %></span>
+    <span class="label">Following</span>
+  </div>
+  <div class="followers-count stat">
+    <span class="count"><%= model.get('followers_count') %></span>
+    <span class="label">Followers</span>
+  </div>
+  <div class="listed-count stat">
+    <span class="count"><%= model.get('listed_count') %></span>
+    <span class="label">Listed</span>
   </div>
 </div>

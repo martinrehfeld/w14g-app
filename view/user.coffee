@@ -1,7 +1,7 @@
 class App.Views.User extends Backbone.View
 
-  tagName:   'section'
-  className: 'user-profile'
+  tagName: 'div'
+  id:      'profile'
 
   initialize: ->
     @model.bind 'change', @render
