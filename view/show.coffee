@@ -12,5 +12,5 @@ class App.Views.Show extends Backbone.View
 
   render: =>
     tweets = $('<section class="tweets" />').append @tweetsFilterView.el, @tweetsView.el
-    $('#app #report').empty().append @userView.el, @tweetsGraphView.el, @wordCloudView.el, tweets
+    $('#report').empty().append @userView.el, @tweetsGraphView.el, @wordCloudView.el, tweets
     @
