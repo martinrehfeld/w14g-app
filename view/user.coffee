@@ -7,5 +7,7 @@ class App.Views.User extends Backbone.View
     @model.bind 'change', @render
 
   render: =>
-    $(@el).html(JST.user_profile model: @model) if @model.get('id')?
+    if @model.get('id')?
+      $(@el).html(JST.user_profile model: @model)
+      $('#profile').addClass('loaded')
     @
