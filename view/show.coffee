@@ -11,6 +11,8 @@ class App.Views.Show extends Backbone.View
     @tweetsView        = new App.Views.Tweets(parent: @model, collection: tweets)
 
   render: =>
+    $(@el).html JST.report_form model: @model
+    $('#form').empty().append @el
     tweets = $('<section class="tweets" />').append @tweetsFilterView.el, @tweetsView.el
     $('#profile').empty().append @userView.el
     $('#report').empty().append @tweetsGraphView.el, @wordCloudView.el, tweets
