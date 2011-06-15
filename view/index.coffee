@@ -9,6 +9,6 @@ class App.Views.Index extends Backbone.View
 
   render: =>
     $(@el).html JST.report_form model: @model
-    $('#form').empty().append @el
+    $('#form').empty().append(@el).addClass('loaded')
     $(@el).find('input').first().focus()
     @
