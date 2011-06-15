@@ -1,7 +1,8 @@
+<div id="w14g"></div>
+<p class="field screen-name">
 <form>
-  <p class="field screen-name">
-    <label for="screen_name">Let me know your Twitter handle, please. @</label>
-    <input type="text" name="screen_name" value="<%= model.escape('screenName') %>">
-    <button>Now, what was I thinking?</button>
-  </p>
+  <label class="username_label" for="screen_name">@&nbsp;</label>
+  <input type="text" name="screen_name" class="screen_name_input" placeholder="Enter Twitter Username" autofocus="autofocus" value="<%= model.escape('screenName') %>" />
+  <button id="submit">So what was I thinking?</button>
 </form>
+</p>
