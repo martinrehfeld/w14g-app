@@ -4,7 +4,7 @@ class App.Views.WordCloud extends Backbone.View
   className: 'word-cloud'
 
   events:
-    'click a': 'filterChange'
+    'click a.filter': 'filterChange'
 
   initialize: ->
     @options.parent.bind 'change', @render

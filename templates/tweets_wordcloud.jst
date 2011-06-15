@@ -1,10 +1,10 @@
 <h1>
   Tagcloud
   <span class="filter">
-    <a data-filter=""<%= !collection.get('filter') ? ' class="active"' : '' %>>All</a>
-    <a data-filter="[^@#]"<%= collection.get('filter') === '[^@#]' ? ' class="active"' : '' %>>Words</a>
-    <a data-filter="@"<%= collection.get('filter') === '@' ? ' class="active"' : '' %>>Users</a>
-    <a data-filter="#"<%= collection.get('filter') === '#' ? ' class="active"' : '' %>>Hashtags</a>
+    <a data-filter=""<%= !collection.get('filter') ? ' class="filter active"' : ' class="filter"' %>>All</a>
+    <a data-filter="[^@#]"<%= collection.get('filter') === '[^@#]' ? ' class="filter active"' : ' class="filter"' %>>Words</a>
+    <a data-filter="@"<%= collection.get('filter') === '@' ? ' class="filter active"' : ' class="filter"' %>>Users</a>
+    <a data-filter="#"<%= collection.get('filter') === '#' ? ' class="filter active"' : ' class="filter"' %>>Hashtags</a>
   </span>
 </h1>
 
