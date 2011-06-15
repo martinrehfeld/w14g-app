@@ -1,9 +1,13 @@
-<div class="filter">
-  <button data-filter=""<%= !collection.get('filter') ? ' class="active"' : '' %>>All</button>
-  <button data-filter="[^@#]"<%= collection.get('filter') === '[^@#]' ? ' class="active"' : '' %>>Words</button>
-  <button data-filter="@"<%= collection.get('filter') === '@' ? ' class="active"' : '' %>>Users</button>
-  <button data-filter="#"<%= collection.get('filter') === '#' ? ' class="active"' : '' %>>Hashtags</button>
-</div>
+<h1>
+  Tagcloud
+  <span class="filter">
+    <a data-filter=""<%= !collection.get('filter') ? ' class="active"' : '' %>>All</a>
+    <a data-filter="[^@#]"<%= collection.get('filter') === '[^@#]' ? ' class="active"' : '' %>>Words</a>
+    <a data-filter="@"<%= collection.get('filter') === '@' ? ' class="active"' : '' %>>Users</a>
+    <a data-filter="#"<%= collection.get('filter') === '#' ? ' class="active"' : '' %>>Hashtags</a>
+  </span>
+</h1>
+
 <% _.each(collection.topEntries(75), function (tupel) { %>
   <% var word = tupel[0], frequency = tupel[1]; %>
   <a href="#!/<%= encodeURIComponent(model.get('screenName')) %>/<%= encodeURIComponent(word) %>" rel="<%= frequency %>"><%= App.escapeHTML(word) %></a>
