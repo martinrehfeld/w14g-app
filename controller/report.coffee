@@ -7,7 +7,6 @@ class App.Controllers.Report extends Backbone.Controller
 
   initialize: ->
     @model    = new App.Models.Report
-    @showView = new App.Views.Show(model: @model).render()
     $('#sky').clouds()
 
   index: ->
@@ -17,6 +16,7 @@ class App.Controllers.Report extends Backbone.Controller
 
   show: (screenName) ->
     @model.set screenName: screenName
+    new App.Views.Show(model: @model).render()
     @model.resetFilter()
     $('#form').addClass('inactive').removeClass('active')
     $('#report').addClass('active').removeClass('inactive')
@@ -24,6 +24,7 @@ class App.Controllers.Report extends Backbone.Controller
 
   filter: (screenName, word) ->
     @model.set screenName: screenName
+    new App.Views.Show(model: @model).render()
     @model.filterByWord decodeURIComponent(word)
     $('#form').addClass('inactive').removeClass('active')
     $('#report').addClass('active').removeClass('inactive')
