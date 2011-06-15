@@ -14,6 +14,5 @@ class App.Views.Show extends Backbone.View
     $(@el).html JST.report_form model: @model
     $('#form').empty().append(@el).addClass('loaded')
     tweets = $('<section class="tweets" />').append @tweetsFilterView.el, @tweetsView.el
-    $('#profile').empty().append @userView.el
-    $('#report').empty().append @tweetsGraphView.el, @wordCloudView.el, tweets
+    $('#report').empty().append @userView.el, @tweetsGraphView.el, @wordCloudView.el, tweets
     @
