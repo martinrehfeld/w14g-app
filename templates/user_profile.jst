@@ -1,7 +1,8 @@
-<h1 class="full-name"><%= model.escape('name') %> <a class="screen-name">(@<%= model.escape('screen_name') %>)</a></h1>
+<h1 class="full-name"><%= model.escape('name') %> </h1>
 <img class="profile-picture" src="<%= encodeURI(model.get('profile_image_url')) %>">
 <div class="profile-details">
   <h2 class="location">
+    <a class="screen-name">@<%= model.escape('screen_name') %></a>
     <span class="location"><%= model.escape('location') %></span>
   </h2>
   <p class="description"><%= model.escape('description') %></p>
