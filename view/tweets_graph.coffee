@@ -17,27 +17,30 @@ class App.Views.TweetsGraph extends Backbone.View
     if @dataTable.getNumberOfRows() > 0
       data = google.visualization.data.group(@dataTable, [0], [column: 1, aggregation: google.visualization.data.sum, type: 'number'])
       @chart.draw data,
-        width:  550
-        height: 220
-        titlePosition: 'none'
-        legend: 'none'
+        width:          550
+        height:         220
+        titlePosition:  'none'
+        legend:         'none'
         backgroundColor:
-          fill:'#4b421b'
-        gridlineColor:'#fff'
-        colors: ['#fff']
-        fontName:'helvetica'
+          fill:         '#4b421b'
+        gridlineColor:  '#fff'
+        colors:         ['#fff']
+        fontName:       'helvetica'
         chartArea:
-          top: 30
-          left: 50
-          width: 470
-          height: 140
+          top:          30
+          left:         50
+          width:        470
+          height:       140
         vAxis:
-          title: 'Tweets per Day'
-          textStyle: {'color':'#fff'}
-          titleTextStyle: {'color':'#fff'}
+          title:        'Tweets per Day'
+          textStyle:
+            color:      '#fff'
+          titleTextStyle:
+            color:      '#fff'
         hAxis:
-          slantedText: false
-          textStyle: {'color':'#fff'}
+          slantedText:  false
+          textStyle:
+            color:      '#fff'
 
   render: =>
     @dataTable.removeRows 0, @dataTable.getNumberOfRows()
