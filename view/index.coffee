@@ -1,7 +1,7 @@
 class App.Views.Index extends Backbone.View
 
   events:
-    'click button': 'update'
+    'submit form': 'update'
 
   update: (event) =>
     event.preventDefault()
