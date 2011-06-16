@@ -47,7 +47,9 @@ class App.Collections.Tweets extends Backbone.Collection
       matchesCurrentFilter = true
 
     for word in _.uniq newTweet.analysedWords() when word != ''
-      if wordMap[word]?
+      # FF would have a function watch() here somehow; should look into it and find the root cause
+      # checking the type for now
+      if wordMap[word]? && typeof wordMap[word] != 'function'
         wordMap[word].push newTweet
       else
         wordMap[word] = [newTweet]
