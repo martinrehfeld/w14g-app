@@ -4,3 +4,11 @@
   <a href="#!/<%= encodeURIComponent(model.get('screenName')) %>">Show all</a>
 </h1>
 <% } %>
+<div>
+  <a href="http://twitter.com/share" class="twitter-share-button" target="_blank"
+    data-text="Look what @<%= model.get('screenName') + ' is thinking' + (collection.isFiltered() ? ' about ' + collection.currentFilter : '') %>"
+    data-count="none"
+    data-via="w14g"
+    data-related="assetsio:Deliciously minified assets, served on a plate of fine CDN">Tweet</a>
+  <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+</div>
