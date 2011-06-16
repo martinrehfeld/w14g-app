@@ -20,11 +20,11 @@ class App.Controllers.Report extends Backbone.Controller
     @model.resetFilter()
     $('#form').addClass('inactive').removeClass('active')
     $('#report').addClass('active').removeClass('inactive')
-    $('#overground').animate({"height":"60%"},1000,"swing")
+    $('#overground').animate({"height":"45%"},1000,"swing")
 
   filter: (screenName, word) ->
     @model.set screenName: screenName
     @model.filterByWord decodeURIComponent(word)
     $('#form').addClass('inactive').removeClass('active')
     $('#report').addClass('active').removeClass('inactive')
-    $('#overground').animate({"height":"60%"},1000,"swing")
+    $('#overground').animate({"height":"45%"},1000,"swing")
